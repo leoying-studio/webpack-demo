@@ -1,0 +1,22 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leoying-studio/webpack-demo.git",
+  "author": "liuying <934725772@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0"
+  },
+  "scripts": {
+    "build01": "webpack --config webpack.config01.js",
+    "build02": "webpack --config webpack.config02.js"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
