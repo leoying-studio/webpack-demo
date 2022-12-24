@@ -15,8 +15,15 @@ module.exports = {
     },
     module: {
         rules: [{
+            // 在css中如果碰到了url属性， 比如设置背景图， 此时会调用require 导致多出default 属性
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
+            use: ['style-loader', {
+                loader: "css-loader",
+                options: {
+                    // 解决加入 esModule: false 直接返回结果
+                    esModule: false
+                }
+            }]
         },
         {
             /**

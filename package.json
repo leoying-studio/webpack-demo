@@ -9,11 +9,14 @@
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
     "style-loader": "^3.3.1",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
     "webpack": "^5.75.0"
   },
   "scripts": {
     "build01": "webpack --config webpack.config01.js",
-    "build02": "webpack --config webpack.config02.js"
+    "build02": "webpack --config webpack.config02.js",
+    "build03": "webpack --config webpack.config03.js"
   },
   "devDependencies": {
     "webpack-cli": "^5.0.1",
