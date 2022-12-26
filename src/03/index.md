@@ -1,44 +1,19 @@
-### 导入图片的时候，通过require 和 import 的区别
-
-如果用require 导入会多一个default 属性，
-
-解决方法： 可以在file-loader 中的options 中新增 esModule: false
+### url-loader 是更加好的加载器
 
 如下：
 ```
- // 增加具体配置
   test: /\.(png|jpe?g)$/, // 匹配常用的图片格式
   use: [
        {
-           loader: 'file-loader',
+           loader: 'url-loader',
            options: {
-               // 是否将模块转换为esModule,false不转换
-               esModule: false
+               // 50k以内就通过base64编码, 否则就通过file-loader 来拷贝
+               limit: 50 * 1024
            }
        }
   ]
 ```
 
-反之就用import 导入
+url-loader 作为一个loader 加载器, 是通过把资源文件转换成base64, 好处是可以作为优化手段,减少http请求次数, 缺点是转换成base64反而会增加
+文件体积, 通过limit 属性控制可以设置一个阈值, 内部实际上也是调用当file-loader.  
 
-### css使用了url 属性， 如何处理
-
-在css中如果碰到了url属性， 比如设置背景图， 此时会调用require 导致多出default 属性
-
-解决方法
-
-```
-  {
-
-        test: /\.css$/,
-        use: ['style-loader', {
-            loader: "css-loader",
-            options: {
-                // 解决加入 esModule: false 直接返回结果
-                esModule: false
-            }
-        }]
-  }
-```
-
-和file-loader一致加上esModule: false 直接返回结果即可

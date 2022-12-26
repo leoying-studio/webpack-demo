@@ -1,6 +1,10 @@
 const path = require("path");
 const foldName = "02"
 
+/**
+ *  该例子中需要安装, style-loader css-loader file-loader 
+ */
+
 module.exports = {
     entry: {
         path: path.resolve(__dirname, "src", foldName , "index.js")

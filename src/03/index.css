@@ -1,8 +1,13 @@
 
 /* 
-    在css中如果碰到了url属性， 比如设置背景图， 此时会调用require 导致多出default 属性
+   引用了两张背景图, 其实只有一张超出了50k, 所以一张通过base64转换,一张通过file-loader 进行资源拷贝
 */
 
 body {
     background-image: url(./../../public/1.jpg);
+}
+
+
+body > #app {
+    background-image: url(./../../public/2.jpg);
 }

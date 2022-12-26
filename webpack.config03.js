@@ -1,6 +1,11 @@
 const path = require("path");
 const foldName = "03"
 
+/**
+ *  该例子中需要安装, style-loader css-loader url-loader
+ *  重点关注url-loader
+ */
+
 module.exports = {
     entry: {
         path: path.resolve(__dirname, "src", foldName, "index.js")
@@ -32,14 +37,14 @@ module.exports = {
             },
             {
                 /**
-                 *  file-load 本质上是对源文件进行的一个拷贝
+                 *  使用url-loader
                  */
                 test: /\.(png|jpg|gif)/,
                 use: [{
-                    loader: "file-loader",
+                    loader: "url-loader",
                     options: {
-                        // 设置了esModule 为false 默认不会通过esModule的方式来导入
-                        esModule: false
+                        // 50k 以内就用base64,反之则使用拷贝
+                        limit: 50 * 1024
                     }
                 }]
             }
