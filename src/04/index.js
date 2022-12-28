@@ -1,4 +1,4 @@
 import Test from './test.ts';
-Test.init("hello");
+Test.init("hello", "word");
 
 

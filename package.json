@@ -26,7 +26,10 @@
     "build03": "webpack --config webpack.config03.js",
     "build04": "webpack --config webpack.config04.js",
     "build05": "webpack --config webpack.config05.js",
-    "build06": "webpack --config webpack.config06.js"
+    "build06": "webpack --config webpack.config06.js",
+    "build07": "webpack --config webpack.config07.js --watch",
+    "dev08": "webpack serve --config webpack.config08.js --open",
+    "dev09": "webpack serve --config webpack.config09.js --open"
   },
   "devDependencies": {
     "webpack-cli": "^5.0.1",
