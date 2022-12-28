@@ -1,5 +1,8 @@
 
-## 冲突解决
+# HMR 热更新
+
+
+## mode和browsnerlist的冲突
 
 开发模式下可能会出现  mode: "development" 和browsnerlist 产生冲突， 加上target: "web"
 则会忽略browsnerlist 配置
@@ -51,5 +54,5 @@
 
 总结: 
 1. 第一步设置 devServer 的 hot: true, 但是依然不具备热更新功能
-2. 继续通过api 热更新, module.hot 来判断和设置
+2. 在入口文件中,继续通过api 热更新, module.hot 来判断和设置
 3. 开启服务, 第一步会先判断环境,通过服务端编译该代码然后再输出到客户端, 实际上一套代码是经过了服务端到客户端到这样一个过程
