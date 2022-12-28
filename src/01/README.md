@@ -1,6 +1,10 @@
-### webpack 默认路径
+## 没有webpack.config.js
 
-webpack.config.js 默认不去指定路径，默认是在项目根目录的，而入口文件默认在src/index.js
+可以没有webpack.config.js文件, 执行webpack 命令,这个时候会去src/index 下的路径去寻找入口文件
+
+### 有webpack.config.js文件
+
+webpack.config.js 默认是在项目根目录的
 
 ### 手动修改指定的配置文件名称或者路径
 

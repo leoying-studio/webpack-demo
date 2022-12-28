@@ -56,3 +56,12 @@ babel.config.js 作为babel-loader的配置开关, 只有配置了才会生效. 
 ### @babel/preset-typescript
 
 则是专门针对ts进行编译的
+
+
+### watch 模式
+
+```
+   "build05": "webpack --config webpack.config05.js --watch",
+```
+
+加上--watch

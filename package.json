@@ -13,6 +13,7 @@
     "core-js": "3",
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.4",
@@ -24,7 +25,10 @@
     "build02": "webpack --config webpack.config02.js",
     "build03": "webpack --config webpack.config03.js",
     "build04": "webpack --config webpack.config04.js",
-    "build05": "webpack --config webpack.config05.js"
+    "build05": "webpack --config webpack.config05.js",
+    "build07": "webpack --config webpack.config07.js --watch",
+    "dev08": "webpack serve --config webpack.config08.js --open",
+    "dev09": "webpack serve --config webpack.config09.js --open"
   },
   "devDependencies": {
     "webpack-cli": "^5.0.1",
