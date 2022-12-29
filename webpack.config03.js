@@ -21,10 +21,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts$/,
-                use: ["ts-loader"]
-            },
-            {
                 // 在css中如果碰到了url属性， 比如设置背景图， 此时会调用require 导致多出default 属性
                 test: /\.css$/,
                 use: ['style-loader', {

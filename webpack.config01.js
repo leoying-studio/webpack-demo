@@ -1,7 +1,7 @@
 const path = require("path");
 
 /**
- *  该例子中需要安装, style-loader css-loader file-loader 
+ *  该例子中需要安装file-loader 
  */
 
 /**
@@ -22,11 +22,8 @@ module.exports = {
         publicPath: "./"
     },
     module: {
-        // 需要安装css-loader style-loader
-        rules: [{
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-        },
+        // 就一个file-loader
+        rules: [
         {
             /**
              *  file-load 本质上是对源文件进行的一个拷贝

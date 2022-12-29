@@ -13,7 +13,7 @@ module.exports = {
         client: {
             // progress: true,
         },
-        hot: true
+        hot: true,
     },
     target: "web",
     output: {
@@ -28,6 +28,7 @@ module.exports = {
     module: {
         rules: [
             {
+                // js 默认是支持的,不需要匹配.js文件, 匹配js文件会出现错误
                 test: /\.(ts|jsx)$/,
                 use: ["babel-loader"]
             }
