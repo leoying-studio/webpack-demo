@@ -8,12 +8,16 @@
   "dependencies": {
     "@babel/core": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "babel-loader": "^9.1.0",
     "core-js": "3",
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-loader": "^4.13.1",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.4",
@@ -29,7 +33,8 @@
     "build06": "webpack --config webpack.config06.js",
     "build07": "webpack --config webpack.config07.js --watch",
     "dev08": "webpack serve --config webpack.config08.js --open",
-    "dev09": "webpack serve --config webpack.config09.js --open"
+    "dev09": "webpack serve --config webpack.config09.js --open",
+    "dev10": "webpack serve --config webpack.config10.js"
   },
   "devDependencies": {
     "webpack-cli": "^5.0.1",

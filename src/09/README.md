@@ -4,7 +4,7 @@
 
 ## mode和browsnerlist的冲突
 
-开发模式下可能会出现  mode: "development" 和browsnerlist 产生冲突， 加上target: "web"
+devServer模式下可能会出现  mode: "development" 和browsnerlist 产生冲突， 加上target: "web"
 则会忽略browsnerlist 配置
 
 ```
