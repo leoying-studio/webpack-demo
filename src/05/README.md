@@ -23,7 +23,7 @@ babel-loader 通过配置webpack
 此时会申明使用了 babel-loader, 但是并不会生效. 因为babel-loader 本身只是一个加载的主体,具体使用需要通过再次配置babel.config 来完成
 
 
-### babel.cofig.js 
+### babel.config.js 
 
 babel.config.js 作为babel-loader的配置开关, 只有配置了才会生效.  当配置了babel-loader 之后会在根目录去寻找babel.config.js文件寻找配置项目
 
@@ -37,6 +37,9 @@ babel.config.js 作为babel-loader的配置开关, 只有配置了才会生效. 
          presets:[
              [
                 "@babel/reset-env", {
+                    // 可以设置为  false  usage entry
+                    // entry 根据当前筛选的browsnerlist的浏览器进行筛选, 同时使用 generator-runtime和corejs  
+                    // usage 根据源代码中使用到的进行填充, 但是需要注意排除node_modules中的三方依赖, 具体在webpack.config.js 中配置exclude/// 属性
                     useBuiltIns: 'usage',
                     corejs: "3"
                 }
@@ -56,7 +59,6 @@ babel.config.js 作为babel-loader的配置开关, 只有配置了才会生效. 
 ### @babel/preset-typescript
 
 则是专门针对ts进行编译的
-
 
 ### watch 模式
 

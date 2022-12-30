@@ -9,7 +9,7 @@ function App() {
     return (
         <main>
             <NavigationBar list={["首页", "新闻", "天气"]}></NavigationBar>
-            <AsideBar></AsideBar>
+            <AsideBar list={["a", "b", "c"]}></AsideBar>
             <footer></footer>
         </main>
     )

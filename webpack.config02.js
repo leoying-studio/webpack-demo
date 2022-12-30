@@ -28,19 +28,6 @@ module.exports = {
                     esModule: false
                 }
             }]
-        },
-        {
-            /**
-             *  file-load 本质上是对源文件进行的一个拷贝
-             */
-            test: /\.(png|jpg|gif)/,
-            use: [{
-                loader: "file-loader",
-                options: {
-                    // 设置了esModule 为false 默认不会通过esModule的方式来导入
-                    esModule: false
-                }
-            }]
         }
         ]
     }
