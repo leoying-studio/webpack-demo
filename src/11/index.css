@@ -1,0 +1,19 @@
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+    font-family: "仓耳渔阳体 W02";
+    font-weight: 400;
+    src: url("./../../public/font/zATZdFzOg_RK8dsZyPYDj.woff2") format("woff2"),
+    url("./../../public/font/zATZdFzOg_RK8dsZyPYDj.woff") format("woff");
+    font-display: swap;
+}
+
+#app {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}

@@ -6,6 +6,8 @@
   "author": "liuying <934725772@qq.com>",
   "license": "MIT",
   "dependencies": {
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
     "@babel/core": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
@@ -35,10 +37,11 @@
     "build07": "webpack --config webpack.config07.js --watch",
     "dev08": "webpack serve --config webpack.config08.js --open",
     "dev09": "webpack serve --config webpack.config09.js --open",
-    "dev10": "webpack serve --config webpack.config10.js"
+    "dev10": "webpack serve --config webpack.config10.js",
+    "dev11": "webpack serve --config webpack.config11.js",
+    "build11": "webpack --config webpack.config11.js"
   },
   "devDependencies": {
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    
   }
 }
