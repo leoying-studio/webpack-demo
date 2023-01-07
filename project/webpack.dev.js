@@ -7,7 +7,8 @@ module.exports = {
         path: path.resolve(__dirname, "src", "index.tsx")
     },
     output: {
-        publicPath: "/"
+        publicPath: "/",
+      
     },
     resolve: {
         alias: {
@@ -15,8 +16,13 @@ module.exports = {
         },
         extensions: ['.js', '.jsx', '.json', '.tsx']
     },
+    devtool: "eval-source-map",
     devServer: {
-        hot: true
+        hot: true,
+        static: {
+            publicPath: '/',
+            // contentBase: path.resolve(__dirname, 'public')
+        }
     },
     target: 'web',
     module: {
