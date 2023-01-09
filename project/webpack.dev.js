@@ -1,5 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const env = require("./config/env")
+const {DefinePlugin} = require("webpack");
 
 module.exports = {
     mode: "development",
@@ -8,7 +11,6 @@ module.exports = {
     },
     output: {
         publicPath: "/",
-      
     },
     resolve: {
         alias: {
@@ -19,9 +21,10 @@ module.exports = {
     devtool: "eval-source-map",
     devServer: {
         hot: true,
+        port: 8080,
         static: {
             publicPath: '/',
-            // contentBase: path.resolve(__dirname, 'public')
+            directory: path.join(__dirname, 'public')
         }
     },
     target: 'web',
@@ -55,9 +58,14 @@ module.exports = {
         ]
     },
     plugins: [
+        // 该插件只能在开发环境中进行使用, build 模式下会出现错误
+        new ReactRefreshWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: "./public/template.html",
             title: 'React App'
+        }),
+        new DefinePlugin({
+           env: `"${env}"`
         })
     ]
 }
