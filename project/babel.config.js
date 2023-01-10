@@ -12,5 +12,6 @@ module.exports = {
         ["@babel/preset-react"],
         ["@babel/preset-typescript"]
     ],
-    plugins: ['react-refresh/babel']
+    // 生产模式下,该配置项需要去除
+    // plugins: ['react-refresh/babel']
 }
