@@ -14,12 +14,13 @@ const prodConfig = {
         splitChunks: {
             // 配置项为all或者initial，包含对同步代码引入进行代码分割时，还需兼顾cacheGroups里面的配置。
             // 一般将三方库打在一起, 可以利用浏览器缓存, 因为三方库不是经常变动的.  将业务代码另外打在一起
-            chunks: "all"
+            chunks: "all",
             // chunks: 'initial',
             // // 超过20kb才会进行拆分
             // minSize: 20 * 1024,
-            // // 至少被引用了两次才会被拆分出来, 该优先级大于minSize
+            // //非按需导入时,至少被引用了两次才会被拆分出来, 该优先级大于minSize
             // minChunks: 1,
+            automaticNameDelimiter: "~" // 抽取出来的文件的自动生成名字的分割符，默认为 ~；
             // // 通过cacheGroups 会把第三方共用的库打包在一个文件里面
             // cacheGroups: {
             //     // vender 这个key 可以随便自定义(多包裹一层)
@@ -38,9 +39,9 @@ const prodConfig = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name][contenthash:8].js',
+        filename: '[name].[contenthash:8].js',
         publicPath: "./",
-        chunkFilename: 'chunk_[name].js'
+        chunkFilename: '[name].chunk.js'
     },
     plugins: [
         // 开发环境是不需要的, 再下次创建之前,先清空dist目录

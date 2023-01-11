@@ -59,3 +59,13 @@ new Promise(() => {
 3. "useBuiltIns": "useage" 会去代码中找需要转换的语法，根据需要去转换。 同时需要设置corejs的版本
 4. "useBuiltIns": "entry" 根据需要兼容的浏览器来决定填充什么（bronwserlist）
 安装之后，实际上还是通过preset-env 来具体配置
+
+## 为什么要使用webpack?
+
+1. 模块化开发, 文件独立避免全局污染.
+2. devServe 提供了即使更新和热更新体验,并且支持sourceMap
+3. 配合corejs 实现语法兼容转换 和特定的框架语法编译
+4. 按需加载
+
+
+查看文章地址: https://juejin.cn/post/6850418111599165448

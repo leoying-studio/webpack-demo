@@ -7,7 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, "src", "index.tsx")
     },
     resolve: {
-        // 编译时候的类型别名
+        // 编译时候的类型别名, 但是在开发过程中引用路径提示需要在tsconfig中配置
         alias: {
             "@":path.resolve(__dirname, 'src')
         },

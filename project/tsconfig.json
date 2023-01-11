@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "baseUrl": "./src",
+      "baseUrl": "/",
       "module": "esnext",
       "target": "es6",
       "lib": ["es6", "es2017"],
@@ -20,7 +20,7 @@
       "noImplicitAny": true,
       "skipDefaultLibCheck": true,
       "paths": {
-       
+         "@/*":["src/*"]
       }
     },
     "exclude": [
