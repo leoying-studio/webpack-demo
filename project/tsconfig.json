@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "baseUrl": "/",
+      "baseUrl": "./",
       "module": "esnext",
       "target": "es6",
       "lib": ["es6", "es2017"],
