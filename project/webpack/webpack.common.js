@@ -1,15 +1,16 @@
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const env = require("./config/env");
+const env = require("./../config/env");
 const {DefinePlugin} = require("webpack");
+const utils = require("./webpack.utils");
+
 module.exports = {
     entry: {
-        path: path.resolve(__dirname, "src", "index.tsx")
+        path: utils.resolve("src/index.tsx")
     },
     resolve: {
         // 编译时候的类型别名, 但是在开发过程中引用路径提示需要在tsconfig中配置
         alias: {
-            "@":path.resolve(__dirname, 'src')
+            "@":utils.resolve("src")
         },
         // 可识别的后缀名
         extensions: ['.js', '.jsx', '.json', '.tsx']

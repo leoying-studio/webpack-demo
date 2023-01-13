@@ -1,7 +1,7 @@
-const path = require("path");
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const {merge} = require("webpack-merge");
 const commonConfig = require("./webpack.common");
+const utils = require("./webpack.utils");
 
 const devConfig = {
     // 这是一个大的控制属性, 如果为"production" 会自动屏蔽devtool源码
@@ -21,7 +21,7 @@ const devConfig = {
             // localhost:8080/ 此时根路径就是对应public的路径
             // localhost:8080/1.jpg 就能访问到public 下的内容
             publicPath: '/',
-            directory: path.join(__dirname, 'public')
+            directory: utils.resolve("public")
         }
     },
     target: 'web',

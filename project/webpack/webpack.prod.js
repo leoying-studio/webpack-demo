@@ -4,9 +4,12 @@ const {merge} = require("webpack-merge");
 const CopyPlugin = require("copy-webpack-plugin");
 const commonConfig = require("./webpack.common");
 const webpack = require("webpack");
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const utils = require("./webpack.utils");
+const buildConfig = require("./../config/build");
 
 // 生成的文件名称有利于我们做浏览器缓存,如果每次都生成新的就没办法使用缓存
-const prodConfig = {
+const webpackProdConfig = {
     mode: "production",
     // optimization: {
     //     // 为了浏览器做长期的缓存, 添加后会把解析的代码专门生成到一个runtime文件中
@@ -39,7 +42,7 @@ const prodConfig = {
     //     }
     // },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: utils.resolve('dist'),
         filename: '[name].[contenthash:8].js',
         publicPath: "./",
         chunkFilename: '[name].chunk.js'
@@ -52,18 +55,37 @@ const prodConfig = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, "public", "utils.js"),
-                    to: path.resolve(__dirname, "dist", "utils.js"),
+                    from: utils.resolve("public", "utils.js"),
+                    to: utils.resolve("dist", "utils.js"),
                 }
             ]
         }),
         // 该插件需要和 webpack.DllPlugin 配合使用
         // 先通过脚本执行 yarn dll, 生成共用的lib后续就不用再生成了(执行一次即可)
         new webpack.DllReferencePlugin({
-            context: path.resolve(__dirname, 'dist', 'dll'),
-            manifest: require('./lib-manifest.json')
+            context: utils.resolve('dist', 'dll'),
+            manifest: utils.resolve('lib-manifest.json')
         })
     ]
 }
 
-module.exports = merge(commonConfig, prodConfig);
+/**
+ *  如果开启了该配置, 则使用代码压缩
+ */
+if (buildConfig.gzip) {
+    const cw = new CompressionWebpackPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: new RegExp(
+        '\\.(' +
+        ["js","css"].join('|') +
+        ')$'
+      ),
+      threshold: 10 * 1024,
+      minRatio: 0.8
+    })
+    console.log("gzip")
+    webpackProdConfig.plugins.push(cw);
+}
+
+module.exports = merge(commonConfig, webpackProdConfig);

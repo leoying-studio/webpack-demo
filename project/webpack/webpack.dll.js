@@ -2,6 +2,7 @@ const path = require("path");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const webpack = require("webpack");
 const {merge} = require("webpack-merge");
+const utils = require("./webpack.utils");
 
 // 生成的文件名称有利于我们做浏览器缓存,如果每次都生成新的就没办法使用缓存
 const dllConfig = {
@@ -10,7 +11,7 @@ const dllConfig = {
         "lib": ["react", "react-dom", "jquery"]
     },
     output: {
-        path: path.resolve(__dirname, 'dll'),
+        path: utils.resolve('dll'),
         filename: '[name].[contenthash:8].js',
         publicPath: "./",
         chunkFilename: '[name].chunk.js'
@@ -19,7 +20,7 @@ const dllConfig = {
         // 开发环境是不需要的, 再下次创建之前,先清空dist目录
         new CleanWebpackPlugin(),
         new webpack.DllPlugin({
-            path: path.join(__dirname, '[name]-manifest.json'),
+            path: utils.resolve('[name]-manifest.json'),
             name: '[name]_library',
             context:__dirname
         })
