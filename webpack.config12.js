@@ -12,7 +12,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist", foldName),
-        filename: "[name].js",
+        filename: "[name].[contenthash].js",
         publicPath: "/dist/12/"
     },
     module: {
@@ -27,7 +27,7 @@ module.exports = {
     optimization:{
         splitChunks: {
          // 选择哪些 chunk 进行优化，可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为all,
-        //   chunks: 'all',
+          chunks: 'all',
         }
     }
 }

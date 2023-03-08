@@ -3,4 +3,4 @@ import $ from "jquery";
 
 
 const j = $({});
-console.log(j);
+console.log(j,1);
