@@ -5,8 +5,9 @@
   "author": "liuying <934725772@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "dev": "webpack serve --config webpack/webpack.dev.js",
+    "build": "webpack --config webpack/webpack.prod.js",
+    "dll": "webpack --config webpack/webpack.dll.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
@@ -36,6 +37,7 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
     "clean-webpack-plugin": "^4.0.0",
+    "compression-webpack-plugin": "^10.0.0",
     "postcss-loader": "^7.0.2",
     "webpack-merge": "^5.8.0"
   }

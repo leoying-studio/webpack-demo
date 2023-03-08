@@ -1,11 +1,32 @@
 # webpack-demo
 
+## 为什么要使用webpack?
+
+1. 模块化开发, 文件独立避免全局污染.
+2. devServe 提供了及时更新和热更新服务,提升开发体验
+3. 配合corejs 实现语法兼容转换
+4. 按需加载
+5. 支持loader 编译, 甚至可以通过nodejs 完成对图片文件base64的转换工作
+6. 文件合并或者拆包,减少http文件请求
+
+查看文章地址: https://juejin.cn/post/6850418111599165448
+
+## 为什么要搞一大堆工程化的东西?  
+
+1. 传统的项目,没有工程化可能引入一堆的script标签, 这个时候变量命名冲突的可能性就增加很多.
+2. 即使本地使用了requirejs实现了模块化, 但是毕竟是写在磁盘里面的,每一次的修改都需要手动刷新一下浏览器,开发体验不好.
+3. webpack serve 开发模式是直接将文件编译写入到计算机的内存中,内存的读写效率和速度远比磁盘快, 并且实现局部更新
+4. 基于nodejs 具备io读写能力,  webpack 具有文件合并, 打包的压缩的优势
+
+总而言之, 基于工程化本质上是实现了一整套的项目解决方案, 让开发者获得更好的开发体验和打包需求. 配置好后, 用户只需要关心业务代码
+和基于现有的生态框架, 快速开发出应用.
+
 ### webpack.config.js 重命名
 
-1. 没有webpack.config.js
-可以没有webpack.config.js文件, 执行webpack 命令,这个时候会去src/index 下的路径去寻找入口文件
+1. 如果没有webpack.config.js 的情况
+执行webpack 命令,这个时候会去src/index 下的路径去寻找入口文件 -- index.js
 
-2. 有webpack.config.js文件
+2. 如果有webpack.config.js文件的情况
 webpack.config.js 默认是在项目根目录的
 
 3. 手动修改指定的配置文件名称或者路径
@@ -60,12 +81,3 @@ new Promise(() => {
 4. "useBuiltIns": "entry" 根据需要兼容的浏览器来决定填充什么（bronwserlist）
 安装之后，实际上还是通过preset-env 来具体配置
 
-## 为什么要使用webpack?
-
-1. 模块化开发, 文件独立避免全局污染.
-2. devServe 提供了即使更新和热更新体验,并且支持sourceMap
-3. 配合corejs 实现语法兼容转换 和特定的框架语法编译
-4. 按需加载
-
-
-查看文章地址: https://juejin.cn/post/6850418111599165448
