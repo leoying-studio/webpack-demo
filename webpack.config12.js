@@ -1,7 +1,16 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin }  = require("clean-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require("path");
 const foldName = "12";
+
+// 为什么需要用 splitChunks 进行分包处理
+
+/**
+ *  分包可以平衡项目取舍问题, 通过分包可以减少首屏加载的压力.
+ *  根据内容自动生成 [conenthash] 文件名称, 如果内容一致文件名称不会再次改变, 可以利用浏览器缓存, 不用每次访问都去下载.js文件
+ */
 
 module.exports = {
     mode: "development",
@@ -21,6 +30,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new BundleAnalyzerPlugin(),
         new HtmlWebpackPlugin({
             template: "public/temp/test.html"
         })
@@ -38,12 +48,24 @@ module.exports = {
      */
     optimization:{
         splitChunks: {
-         // 选择哪些 chunk 进行优化，可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为all,
+         // 选择哪些 chunk 进行优化，可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为async,
+
+         /**
+          *  默认为async 的意思是默认把异步导入的模块单独打包到一个chunk里面, 如 import('./utils.js')
+          *  只选择通过 import() 异步加载的模块来分离 chunks
+          *  
+          *  initial 默认会把公用的都提取出来, 不管是同步还是异步的. 但是如果同步里面和异步分别引入了同一个模块,同步模块依然会把模块重复打包进去
+          * 
+          *  从这几个选项来看, 最优选择还是 all, 是符合我们预期的
+          */
           chunks: 'all',
           /**
            *  这个选项对，具体的文件单独拆包就跟他的名字一样，拆出来作为缓存用
            *  对node_modules 下面的每一个文件进行单独拆包
            */
+
+          // 该选项指的是如果 cacheGroups 有多个模块需要拆分, 并且在实际的项目中也都满足条件要求, 但是最大不能超过 maxInitialRequests 的值, 
+          // 如果超过了, 则自动合并到较大的一个 chunks 里面去.  个人觉得这个值没有必要,或者设置到最大即可
           maxInitialRequests: Infinity,
           minSize: 0,
           cacheGroups: {
