@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin }  = require("clean-webpack-plugin");
 const path = require("path");
 const foldName = "12";
 
@@ -19,6 +20,7 @@ module.exports = {
         rules: []
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: "public/temp/test.html"
         })

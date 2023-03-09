@@ -44,5 +44,7 @@
     "dev12": "webpack serve --config webpack.config12.js",
     "build12": "webpack --config webpack.config12.js"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0"
+  }
 }
