@@ -9,6 +9,7 @@
       "moduleResolution": "node",
       "strict": true,
       "strictNullChecks": false,
+      "noResolve": false,
       "suppressImplicitAnyIndexErrors": true,
       "noUnusedLocals": false,
       "allowSyntheticDefaultImports": true,
@@ -19,8 +20,9 @@
       "keyofStringsOnly": true,
       "noImplicitAny": true,
       "skipDefaultLibCheck": true,
+      // path别名只是起到开发过程中的路径提示
       "paths": {
-         "@/*":["src/*"]
+         "@/*": ["src/*"]
       }
     },
     "exclude": [
